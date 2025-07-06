@@ -1,11 +1,34 @@
 declare module 'pitchy' {
   /**
-   * Analyzes a buffer of PCM audio data and returns the pitch and clarity.
-   * @param buffer - The audio buffer to analyze
-   * @param sampleRate - The sample rate of the audio buffer
-   * @returns A tuple containing the pitch in Hz and the clarity (0-1)
+   * Class for detecting pitch in audio data
    */
-  export function findPitch(buffer: Float32Array, sampleRate: number): [number, number];
+  export class PitchDetector {
+    /**
+     * Creates a PitchDetector that outputs to a Float32Array
+     * @param inputLength - The length of the input buffer
+     */
+    static forFloat32Array(inputLength: number): PitchDetector;
+
+    /**
+     * Creates a PitchDetector that outputs to a Float64Array
+     * @param inputLength - The length of the input buffer
+     */
+    static forFloat64Array(inputLength: number): PitchDetector;
+
+    /**
+     * Creates a PitchDetector that outputs to a number array
+     * @param inputLength - The length of the input buffer
+     */
+    static forNumberArray(inputLength: number): PitchDetector;
+
+    /**
+     * Analyzes a buffer of PCM audio data and returns the pitch and clarity.
+     * @param input - The audio buffer to analyze
+     * @param sampleRate - The sample rate of the audio buffer
+     * @returns A tuple containing the pitch in Hz and the clarity (0-1)
+     */
+    findPitch(input: Float32Array, sampleRate: number): [number, number];
+  }
 
   /**
    * Converts a frequency in Hz to the corresponding musical note name.
