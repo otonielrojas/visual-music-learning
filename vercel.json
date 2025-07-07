@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "framework": "sveltekit",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".svelte-kit/output",
+  "regions": ["iad1"],
+  "env": {
+    "AUTH_USERNAME": "@auth_username",
+    "AUTH_PASSWORD": "@auth_password"
+  }
+}
