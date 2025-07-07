@@ -27,6 +27,26 @@ This application aims to create an intuitive visual notation system that helps s
 - **Styling**: Tailwind CSS v4
 - **Audio**: Web Audio API, Pitchy
 - **Hosting**: Vercel with Edge Runtime
+- **Security**: Basic HTTP Authentication
+
+## Authentication
+
+The application is protected with basic HTTP authentication to prevent unauthorized access. This is implemented using SvelteKit hooks.
+
+### Configuration
+
+1. Set the following environment variables in your Vercel project or `.env` file:
+   - `AUTH_USERNAME`: Username for basic authentication (default: "admin")
+   - `AUTH_PASSWORD`: Password for basic authentication (default: "password")
+   - `SKIP_AUTH`: Set to "true" to disable authentication in development mode
+
+2. For local development, you can create a `.env` file based on the `.env.example` template:
+   ```bash
+   cp .env.example .env
+   # Then edit .env with your desired credentials
+   ```
+
+3. In Vercel, add these environment variables in your project settings under "Environment Variables"
 
 ## Usage Instructions
 
